@@ -1,0 +1,88 @@
+:root{
+  --bg:#f7f7f8;
+  --ink:#0f172a;           /* texto principal */
+  --muted:#64748b;         /* texto secundario */
+  --brand:#ff6a00;         /* naranja poderoso */
+  --brand-ink:#1a1a1a;     /* negro grafito */
+  --border:#e5e7eb;
+  --card:#ffffff;
+  --radius:14px;
+  --shadow:0 8px 28px rgba(17,24,39,.10);
+}
+
+*{ box-sizing:border-box; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+body{ font-family: "Segoe UI", Roboto, Arial, "Noto Sans", sans-serif; background:var(--bg); color:var(--ink); margin:0; }
+
+.topbar{
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.title{ margin:10px 0; font-weight:900; letter-spacing:.3px; }
+.divider{ border:0; border-top:1px solid var(--border); margin:10px 0 16px; }
+
+.btn{
+  appearance:none; border:0; cursor:pointer; padding:10px 16px; border-radius:10px;
+  font-weight:700; box-shadow:var(--shadow);
+}
+.btn-print{ background:var(--brand); color:#fff; }
+.btn-print:active{ transform:translateY(1px); }
+
+.empty-state{
+  background:#fff; border:1px solid var(--border); border-radius:var(--radius);
+  padding:22px; color:var(--muted);
+}
+
+/* Tarjeta principal imprimible */
+.card{
+  background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+  box-shadow:var(--shadow); overflow:hidden;
+}
+
+/* Encabezado */
+.card-header{
+  display:flex; align-items:flex-start; justify-content:space-between; gap:20px;
+  padding:22px 24px; border-bottom:1px solid var(--border);
+}
+.brand{ display:flex; align-items:center; gap:14px; }
+.brand-logo{ width:84px; height:84px; object-fit:contain; }
+.brand-title{ margin:0; font-size:26px; font-weight:900; color:var(--brand-ink); letter-spacing:.6px; }
+.brand-sub{ margin:2px 0 0; color:var(--muted); font-size:12px; }
+
+.meta{ text-align:right; min-width:240px; }
+.meta-field{ margin-bottom:8px; }
+.meta .k{ color:var(--muted); font-size:12px; font-weight:700; margin-right:8px; }
+.meta .v{ color:var(--brand-ink); font-weight:800; }
+
+/* Cuerpo: grilla de días */
+.grid-days{
+  display:grid; gap:16px; padding:20px 24px;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+}
+.day-card{
+  border:1px solid var(--border); border-radius:12px; padding:14px 16px; background:#fff;
+}
+.day-card h3{ margin:0 0 8px; font-size:16px; color:var(--brand-ink); }
+.day-card p{
+  margin:0; white-space:pre-wrap; line-height:1.5; color:var(--ink);
+}
+
+/* Pie */
+.card-footer{
+  display:flex; align-items:flex-end; justify-content:space-between; gap:18px;
+  padding:18px 24px; border-top:1px solid var(--border);
+}
+.note{ color:var(--muted); font-size:12px; }
+.sign{ text-align:center; min-width:240px; }
+.sign .line{ border-top:2px solid var(--ink); margin-bottom:6px; }
+.sign span{ color:var(--muted); font-size:12px; }
+
+/* Impresión */
+@media print {
+  body{ background:#fff; }
+  .page-container, .main-content{ margin:0; padding:0; box-shadow:none; }
+  .topbar, .divider{ display:none !important; }
+  .card{ border:none; box-shadow:none; }
+  .grid-days{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@page { size:A4 portrait; margin:14mm; }

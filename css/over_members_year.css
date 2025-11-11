@@ -1,0 +1,80 @@
+/* ==== FITFUSION — Miembros por Año (scope aislado) ==== */
+.ff-members-year{
+  --ff-p:#ff6a00;   /* naranja principal */
+  --ff-s:#ff2d20;   /* rojo acento */
+  --ff-a:#1677ff;   /* azul foco */
+  --ff-text:#22324a;
+  --ff-muted:#6b778c;
+  --ff-border:#e6e9f0;
+  --ff-bg:#ffffff;
+}
+
+/* Barra superior: pastilla Cerrar Sesión */
+.ff-members-year .ff-links-list{display:flex;align-items:center;gap:10px}
+.ff-members-year .ff-links-list li{padding:0 !important}
+.ff-members-year .ff-pill{
+  display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;
+  font-weight:800;color:#fff !important;text-decoration:none;
+  background:linear-gradient(90deg,var(--ff-a),#6f9bff);
+  box-shadow:0 8px 18px rgba(22,119,255,.25);
+  transition:transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.ff-members-year .ff-pill:hover{transform:translateY(-1px);box-shadow:0 12px 26px rgba(22,119,255,.32);opacity:.95}
+
+/* Título y subrayado */
+.ff-members-year .ff-section{margin-top:6px}
+.ff-members-year .ff-page-title{
+  font-weight:900;font-size:24px;letter-spacing:.2px;margin:10px 0 6px;
+  background:linear-gradient(90deg,var(--ff-p),var(--ff-a));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.ff-members-year .ff-page-underline{
+  width:90px;height:4px;border-radius:999px;
+  background:linear-gradient(90deg,var(--ff-p),var(--ff-a));
+  margin-bottom:14px;
+}
+
+/* Toolbar filtros */
+.ff-members-year .ff-toolbar{
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 12px;
+}
+.ff-members-year .sr-only{position:absolute;left:-9999px}
+.ff-members-year .ff-input{
+  padding:10px 12px;border:1px solid #d7dce6;border-radius:10px;background:#fff;color:#0f172a;
+  transition:box-shadow .15s,border-color .15s;
+}
+.ff-members-year .ff-input:focus{border-color:var(--ff-a);box-shadow:0 0 0 3px rgba(22,119,255,.18)}
+.ff-members-year .ff-input--select{min-width:160px}
+
+/* Botones */
+.ff-members-year .ff-btn{
+  border:none;border-radius:12px;padding:10px 16px;font-weight:800;cursor:pointer;
+  transition:transform .15s,box-shadow .15s,opacity .15s;
+}
+.ff-members-year .ff-btn-primary{
+  color:#fff;background:linear-gradient(90deg,var(--ff-p),var(--ff-s));
+  box-shadow:0 10px 22px rgba(255,42,0,.22);
+}
+.ff-members-year .ff-btn:hover{transform:translateY(-1px);opacity:.98}
+
+/* Tabla */
+.ff-members-year .ff-table-wrap{overflow:auto;border:1px solid var(--ff-border);border-radius:12px}
+.ff-members-year .ff-table,
+.ff-members-year #meyear{width:100%;border-collapse:separate;border-spacing:0}
+.ff-members-year .ff-table th,
+.ff-members-year .ff-table td,
+.ff-members-year #meyear th,
+.ff-members-year #meyear td{
+  padding:10px 12px;border-bottom:1px solid var(--ff-border);text-align:left;
+}
+.ff-members-year .ff-table thead th,
+.ff-members-year #meyear thead th{
+  background:#f9fafb;color:var(--ff-text);font-weight:800;position:sticky;top:0;z-index:1
+}
+.ff-members-year .ff-num{text-align:center}
+.ff-members-year .ff-empty{text-align:center;color:var(--ff-muted);padding:14px}
+
+/* Responsive */
+@media (max-width:820px){
+  .ff-members-year .ff-input--select{min-width:130px}
+}

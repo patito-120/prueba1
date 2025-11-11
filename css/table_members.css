@@ -1,0 +1,234 @@
+/* ================================
+   FITFUSION — table_members.css
+   Estilos aislados para listados
+   con buscador + paginación
+   ================================ */
+
+:root{
+  --ff-primary:#ff6a00;
+  --ff-primary-600:#ff7d21;
+  --ff-primary-700:#e85e00;
+  --ff-text:#22324a;
+  --ff-muted:#6b7a90;
+  --ff-border:#d7dce6;
+  --ff-bg:#ffffff;
+  --ff-row-alt:#fafbff;
+  --ff-row-hover:#fff5ef;
+}
+
+/* Contenedor de esta página */
+.ff-tablelist{
+  color:var(--ff-text);
+}
+
+/* Título y subrayado */
+.ff-title{
+  font-size:1.6rem;
+  font-weight:800;
+  margin:0 0 .25rem 0;
+  color:var(--ff-text);
+}
+.ff-underline{
+  width:72px;
+  height:4px;
+  background:var(--ff-primary);
+  border-radius:6px;
+  margin:.25rem 0 1rem 0;
+}
+
+/* ------------------------------
+   Toolbar: buscador + page size
+   ------------------------------ */
+.ff-tablelist .ff-toolbar{
+  display:flex;
+  gap:12px;
+  align-items:center;           /* FIX: centra verticalmente */
+  justify-content:space-between;
+  flex-wrap:wrap;               /* en móviles baja a 2 filas */
+  margin:12px 0 10px 0;
+}
+
+/* Buscador */
+.ff-search{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.ff-search input{
+  height:40px;                  /* FIX: altura consistente */
+  padding:0 14px;
+  border:1px solid var(--ff-border);
+  border-radius:10px;
+  min-width:260px;
+  background:#fff;
+  outline:none;
+}
+.ff-search input:focus{
+  box-shadow:0 0 0 3px rgba(255,106,0,.12);
+  border-color:var(--ff-primary);
+}
+
+/* Selector de tamaño de página */
+.ff-page-size{
+  display:flex;
+  align-items:center;           /* FIX: alinea con el input */
+  gap:8px;
+  color:var(--ff-text);
+  font-weight:700;
+}
+.ff-page-size select{
+  height:40px;                  /* FIX: igual que el input */
+  line-height:40px;
+  padding:0 12px;
+  border:1px solid var(--ff-border);
+  border-radius:10px;
+  background:#fff;
+}
+
+/* No partir en líneas distintas en pantallas medianas+ */
+@media (min-width:768px){
+  .ff-tablelist .ff-toolbar{ flex-wrap:nowrap; }
+}
+
+/* ------------------------------
+   Tabla
+   ------------------------------ */
+.ff-table-wrap{
+  width:100%;
+  overflow-x:auto;
+  background:var(--ff-bg);
+  border:1px solid var(--ff-border);
+  border-radius:12px;
+}
+
+.ff-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  font-size:.95rem;
+}
+
+.ff-table thead th{
+  position:sticky;
+  top:0;
+  z-index:1;
+  background:#fff8f3;
+  color:var(--ff-text);
+  font-weight:800;
+  text-transform:uppercase;
+  font-size:.8rem;
+  letter-spacing:.02em;
+  padding:12px 14px;
+  border-bottom:1px solid var(--ff-border);
+}
+.ff-table thead th:first-child{
+  border-top-left-radius:12px;
+}
+.ff-table thead th:last-child{
+  border-top-right-radius:12px;
+}
+
+.ff-table tbody td{
+  padding:12px 14px;
+  border-bottom:1px solid var(--ff-border);
+  color:var(--ff-text);
+  vertical-align:middle;
+  background:#fff;
+}
+.ff-table tbody tr:nth-child(even) td{
+  background:var(--ff-row-alt);
+}
+.ff-table tbody tr:hover td{
+  background:var(--ff-row-hover);
+}
+
+/* Columnas útiles */
+.ff-col-number{
+  width:64px;
+  text-align:center;
+  font-weight:700;
+  color:var(--ff-muted);
+}
+.ff-col-right{
+  text-align:right;
+}
+.ff-col-actions{
+  width:160px;
+}
+
+/* ------------------------------
+   Botones
+   ------------------------------ */
+.ff-btn{
+  border:none;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.15s ease;
+  background:#eef2f7;
+  color:var(--ff-text);
+}
+.ff-btn:hover{
+  filter:brightness(.98);
+}
+.ff-btn--info{
+  background:var(--ff-primary);
+  color:#fff;
+}
+.ff-btn--info:hover{
+  background:var(--ff-primary-700);
+}
+
+/* Píldoras / links superiores */
+.ff-pill{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:#1a76e6;
+  color:var(--ff-text);
+  font-weight:800;
+  text-decoration:none;
+}
+
+/* ------------------------------
+   Paginación
+   ------------------------------ */
+.ff-pagination{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  justify-content:center;
+  margin:14px 0 4px;
+  flex-wrap:wrap;
+}
+.ff-page-btn{
+  min-width:36px;
+  height:36px;
+  padding:0 10px;
+  border-radius:10px;
+  border:1px solid var(--ff-border);
+  background:#fff;
+  color:var(--ff-text);
+  font-weight:800;
+  cursor:pointer;
+}
+.ff-page-btn[disabled],
+.ff-page-btn.ff-active{
+  background:var(--ff-primary);
+  border-color:var(--ff-primary);
+  color:#fff;
+  cursor:default;
+}
+
+/* ------------------------------
+   Utilidades
+   ------------------------------ */
+.ff-hidden{ display:none !important; }
+.ff-muted{ color:var(--ff-muted); }
+
+/* Responsive tabla en pantallas muy pequeñas */
+@media (max-width:560px){
+  .ff-search input{ min-width:200px; width:100%; }
+  .ff-col-actions{ width:auto; }
+}

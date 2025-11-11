@@ -1,0 +1,1 @@
+<footer class="main">Copyright &copy; 2025 <strong>Gym Cañones</strong></footer>
