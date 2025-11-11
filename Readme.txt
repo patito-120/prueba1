@@ -17,3 +17,5 @@ Este cambio se realizo en una nueva rama (Comando para crear y cambiar a una nue
 con el comando >git checkout -b rama_pueba
 Switched to a new branch 'rama_pueba'
 buenmente subos los cambis en tu proyecto
+
+git pull trae todos los cambios del repositorio remoto
